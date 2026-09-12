@@ -30,9 +30,11 @@ create table if not exists public.raw_reports (
     unique (source_file, source_row_number)
 );
 
--- Safe to re-run: adds the column if this table already existed without it.
+-- Safe to re-run: adds columns if this table already existed without them.
 alter table public.raw_reports
     add column if not exists location_confidence double precision;
+alter table public.raw_reports
+    add column if not exists incident_id uuid references public.incidents(id) on delete restrict;
 
 create index if not exists idx_raw_reports_source_report_id
     on public.raw_reports(source_report_id);
