@@ -104,16 +104,30 @@ create table if not exists public.incidents (
     priority_score integer not null default 0 check (priority_score between 0 and 100),
     priority_level text,
     priority_reasons jsonb not null default '[]'::jsonb,
+    priority_factors jsonb not null default '{}'::jsonb,
     required_crew text,
     status text not null default 'New',
     classification_confidence double precision,
     location_confidence double precision,
+    road_class text,
+    asset_types jsonb not null default '[]'::jsonb,
+    nearest_facility text,
+    facility_distance_m double precision,
+    urgency text,
     needs_review boolean not null default false,
     recent_job_warning jsonb,
     ai_metadata jsonb,
     created_at timestamptz not null default now(),
     updated_at timestamptz not null default now()
 );
+
+-- Safe to re-run: adds columns if table already existed without them
+alter table public.incidents add column if not exists priority_factors jsonb not null default '{}'::jsonb;
+alter table public.incidents add column if not exists road_class text;
+alter table public.incidents add column if not exists asset_types jsonb not null default '[]'::jsonb;
+alter table public.incidents add column if not exists nearest_facility text;
+alter table public.incidents add column if not exists facility_distance_m double precision;
+alter table public.incidents add column if not exists urgency text;
 
 create index if not exists idx_incidents_priority
     on public.incidents(priority_score desc);
