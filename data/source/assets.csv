@@ -1,0 +1,185 @@
+road_name,also_known_as,road_class,ward,asset_type,asset_id,nearest_facility,facility_distance_m
+Station Road,,bus route,Bambalapitiya,bus shelter,MMC-BUS-3847,Vidyala College,120
+Station Road,,bus route,Bambalapitiya,streetlight,MMC-STR-9270,Vidyala College,120
+Station Road,,bus route,Bambalapitiya,drain,MMC-DRA-7712,Vidyala College,120
+Station Road,,bus route,Bambalapitiya,footpath,MMC-FOO-6289,Vidyala College,120
+Muhandiram Place,,residential,Bambalapitiya,bus shelter,MMC-BUS-9272,,
+Muhandiram Place,,residential,Bambalapitiya,streetlight,MMC-STR-2431,,
+Muhandiram Place,,residential,Bambalapitiya,drain,MMC-DRA-8164,,
+Temple Lane,the road by the temple,residential,Havelock Town,streetlight,MMC-STR-9992,,
+Temple Lane,the road by the temple,residential,Havelock Town,bus shelter,MMC-BUS-6204,,
+Temple Lane,the road by the temple,residential,Havelock Town,drain,MMC-DRA-8474,,
+Kadella Lane,,lane,Narahenpita,footpath,MMC-FOO-3599,,
+Kadella Lane,,lane,Narahenpita,bus shelter,MMC-BUS-7891,,
+Galle Road,,main road,Kollupitiya,footpath,MMC-FOO-5585,St Anthony's Girls School,210
+Galle Road,,main road,Kollupitiya,streetlight,MMC-STR-1909,St Anthony's Girls School,210
+Nawala Road,,bus route,Narahenpita,drain,MMC-DRA-1270,Narahenpita Model School,205
+Nawala Road,,bus route,Narahenpita,bus shelter,MMC-BUS-6674,Narahenpita Model School,205
+Nawala Road,,bus route,Narahenpita,streetlight,MMC-STR-2047,Narahenpita Model School,205
+Nawala Road,,bus route,Narahenpita,footpath,MMC-FOO-4481,Narahenpita Model School,205
+Kirula Road,,residential,Thimbirigasyaya,footpath,MMC-FOO-2791,,
+Kirula Road,,residential,Thimbirigasyaya,streetlight,MMC-STR-6908,,
+Kirula Road,,residential,Thimbirigasyaya,drain,MMC-DRA-5185,,
+Kirula Road,,residential,Thimbirigasyaya,bus shelter,MMC-BUS-4664,,
+Havelock Road,,main road,Havelock Town,footpath,MMC-FOO-6389,Havelock Town Maha Vidyalaya,180
+Havelock Road,,main road,Havelock Town,bus shelter,MMC-BUS-6912,Havelock Town Maha Vidyalaya,180
+Duplication Road,R A de Mel Mawatha,main road,Bambalapitiya,footpath,MMC-FOO-9888,,
+Duplication Road,R A de Mel Mawatha,main road,Bambalapitiya,drain,MMC-DRA-2052,,
+Baseline Road,,main road,Borella,streetlight,MMC-STR-9199,Ananda Balika Vidyalaya,160
+Baseline Road,,main road,Borella,drain,MMC-DRA-3819,Ananda Balika Vidyalaya,160
+Baseline Road,,main road,Borella,footpath,MMC-FOO-7687,Ananda Balika Vidyalaya,160
+Dickmans Road,Lester James Peiris Mw,residential,Havelock Town,bus shelter,MMC-BUS-8804,,
+Dickmans Road,Lester James Peiris Mw,residential,Havelock Town,footpath,MMC-FOO-8498,,
+Torrington Avenue,,bus route,Thimbirigasyaya,bus shelter,MMC-BUS-3646,,
+Torrington Avenue,,bus route,Thimbirigasyaya,streetlight,MMC-STR-9594,,
+Torrington Avenue,,bus route,Thimbirigasyaya,footpath,MMC-FOO-6627,,
+Bauddhaloka Mawatha,,main road,Thimbirigasyaya,streetlight,MMC-STR-8493,,
+Bauddhaloka Mawatha,,main road,Thimbirigasyaya,bus shelter,MMC-BUS-6399,,
+Bauddhaloka Mawatha,,main road,Thimbirigasyaya,footpath,MMC-FOO-1371,,
+Thimbirigasyaya Road,the main road by the flyover,bus route,Thimbirigasyaya,bus shelter,MMC-BUS-1931,Isipathana Primary,200
+Thimbirigasyaya Road,the main road by the flyover,bus route,Thimbirigasyaya,footpath,MMC-FOO-4284,Isipathana Primary,200
+Elvitigala Mawatha,Baseline extension,main road,Narahenpita,streetlight,MMC-STR-9936,,
+Elvitigala Mawatha,Baseline extension,main road,Narahenpita,drain,MMC-DRA-3176,,
+Elvitigala Mawatha,Baseline extension,main road,Narahenpita,footpath,MMC-FOO-7488,,
+Park Road,,residential,Havelock Town,streetlight,MMC-STR-4843,,
+Park Road,,residential,Havelock Town,drain,MMC-DRA-6148,,
+Jawatta Road,,residential,Thimbirigasyaya,bus shelter,MMC-BUS-5581,,
+Jawatta Road,,residential,Thimbirigasyaya,drain,MMC-DRA-1564,,
+Cotta Road,,bus route,Borella,drain,MMC-DRA-8253,Borella Central College,240
+Cotta Road,,bus route,Borella,bus shelter,MMC-BUS-8665,Borella Central College,240
+Cotta Road,,bus route,Borella,streetlight,MMC-STR-3642,Borella Central College,240
+Cotta Road,,bus route,Borella,footpath,MMC-FOO-5306,Borella Central College,240
+Ward Place,,residential,Borella,drain,MMC-DRA-7131,,
+Ward Place,,residential,Borella,bus shelter,MMC-BUS-2749,,
+Ward Place,,residential,Borella,streetlight,MMC-STR-5874,,
+Horton Place,,main road,Borella,bus shelter,MMC-BUS-6819,Borella Eye Clinic,190
+Horton Place,,main road,Borella,drain,MMC-DRA-6207,Borella Eye Clinic,190
+Horton Place,,main road,Borella,streetlight,MMC-STR-6939,Borella Eye Clinic,190
+Horton Place,,main road,Borella,footpath,MMC-FOO-1953,Borella Eye Clinic,190
+Rosmead Place,,residential,Borella,footpath,MMC-FOO-9817,,
+Rosmead Place,,residential,Borella,streetlight,MMC-STR-1769,,
+Rosmead Place,,residential,Borella,drain,MMC-DRA-2286,,
+Rosmead Place,,residential,Borella,bus shelter,MMC-BUS-2185,,
+Barnes Place,,residential,Borella,drain,MMC-DRA-5840,,
+Barnes Place,,residential,Borella,bus shelter,MMC-BUS-3337,,
+Gregorys Road,Sir Ernest de Silva Mw,residential,Borella,bus shelter,MMC-BUS-5164,,
+Gregorys Road,Sir Ernest de Silva Mw,residential,Borella,streetlight,MMC-STR-4018,,
+Gregorys Road,Sir Ernest de Silva Mw,residential,Borella,footpath,MMC-FOO-8322,,
+Gregorys Road,Sir Ernest de Silva Mw,residential,Borella,drain,MMC-DRA-2763,,
+Independence Avenue,,main road,Borella,streetlight,MMC-STR-7874,,
+Independence Avenue,,main road,Borella,bus shelter,MMC-BUS-7187,,
+Independence Avenue,,main road,Borella,drain,MMC-DRA-7302,,
+Maitland Crescent,,residential,Thimbirigasyaya,footpath,MMC-FOO-9489,,
+Maitland Crescent,,residential,Thimbirigasyaya,drain,MMC-DRA-7930,,
+Maitland Crescent,,residential,Thimbirigasyaya,streetlight,MMC-STR-4651,,
+Maitland Crescent,,residential,Thimbirigasyaya,bus shelter,MMC-BUS-9846,,
+Longden Place,,residential,Kollupitiya,drain,MMC-DRA-9144,,
+Longden Place,,residential,Kollupitiya,bus shelter,MMC-BUS-1956,,
+Longden Place,,residential,Kollupitiya,footpath,MMC-FOO-6104,,
+Longden Place,,residential,Kollupitiya,streetlight,MMC-STR-5843,,
+Alfred House Gardens,,residential,Kollupitiya,bus shelter,MMC-BUS-2447,,
+Alfred House Gardens,,residential,Kollupitiya,drain,MMC-DRA-9184,,
+Alfred House Gardens,,residential,Kollupitiya,footpath,MMC-FOO-3801,,
+Alfred House Gardens,,residential,Kollupitiya,streetlight,MMC-STR-6132,,
+Vajira Road,,bus route,Bambalapitiya,streetlight,MMC-STR-3536,,
+Vajira Road,,bus route,Bambalapitiya,footpath,MMC-FOO-8256,,
+Vajira Road,,bus route,Bambalapitiya,bus shelter,MMC-BUS-8634,,
+Vajira Road,,bus route,Bambalapitiya,drain,MMC-DRA-7225,,
+Bagatalle Road,,residential,Kollupitiya,streetlight,MMC-STR-1758,,
+Bagatalle Road,,residential,Kollupitiya,bus shelter,MMC-BUS-3863,,
+Bagatalle Road,,residential,Kollupitiya,footpath,MMC-FOO-3894,,
+Kollupitiya Road,,main road,Kollupitiya,streetlight,MMC-STR-5020,,
+Kollupitiya Road,,main road,Kollupitiya,footpath,MMC-FOO-1355,,
+Kollupitiya Road,,main road,Kollupitiya,bus shelter,MMC-BUS-1985,,
+Marine Drive,,main road,Bambalapitiya,drain,MMC-DRA-6820,,
+Marine Drive,,main road,Bambalapitiya,footpath,MMC-FOO-9315,,
+Deal Place,,lane,Kollupitiya,bus shelter,MMC-BUS-8938,,
+Deal Place,,lane,Kollupitiya,streetlight,MMC-STR-4098,,
+Deal Place,,lane,Kollupitiya,drain,MMC-DRA-5594,,
+Deal Place,,lane,Kollupitiya,footpath,MMC-FOO-3785,,
+Charles Circus,,residential,Kollupitiya,drain,MMC-DRA-7721,,
+Charles Circus,,residential,Kollupitiya,footpath,MMC-FOO-1213,,
+Rheinland Place,,lane,Kollupitiya,bus shelter,MMC-BUS-1811,,
+Rheinland Place,,lane,Kollupitiya,drain,MMC-DRA-8903,,
+Sulaiman Terrace,,lane,Thimbirigasyaya,drain,MMC-DRA-8641,,
+Sulaiman Terrace,,lane,Thimbirigasyaya,footpath,MMC-FOO-4374,,
+Anderson Road,,residential,Narahenpita,bus shelter,MMC-BUS-1785,,
+Anderson Road,,residential,Narahenpita,footpath,MMC-FOO-1449,,
+Anderson Road,,residential,Narahenpita,drain,MMC-DRA-9644,,
+Anderson Road,,residential,Narahenpita,streetlight,MMC-STR-3658,,
+Polhengoda Road,the road past the market,bus route,Narahenpita,bus shelter,MMC-BUS-7144,,
+Polhengoda Road,the road past the market,bus route,Narahenpita,streetlight,MMC-STR-7428,,
+Polhengoda Road,the road past the market,bus route,Narahenpita,drain,MMC-DRA-5300,,
+Polhengoda Road,the road past the market,bus route,Narahenpita,footpath,MMC-FOO-1424,,
+Pamankada Road,,bus route,Dehiwala,bus shelter,MMC-BUS-1729,Pamankada Primary,175
+Pamankada Road,,bus route,Dehiwala,footpath,MMC-FOO-4830,Pamankada Primary,175
+Pamankada Road,,bus route,Dehiwala,drain,MMC-DRA-5446,Pamankada Primary,175
+High Level Road,,main road,Nugegoda,footpath,MMC-FOO-3708,Gamini Maha Vidyalaya,230
+High Level Road,,main road,Nugegoda,drain,MMC-DRA-1679,Gamini Maha Vidyalaya,230
+High Level Road,,main road,Nugegoda,bus shelter,MMC-BUS-3961,Gamini Maha Vidyalaya,230
+Old Kesbewa Road,,bus route,Dehiwala,drain,MMC-DRA-5930,,
+Old Kesbewa Road,,bus route,Dehiwala,bus shelter,MMC-BUS-8761,,
+Old Kesbewa Road,,bus route,Dehiwala,streetlight,MMC-STR-6228,,
+Old Kesbewa Road,,bus route,Dehiwala,footpath,MMC-FOO-1009,,
+Bellanthara Road,,residential,Dehiwala,bus shelter,MMC-BUS-1587,,
+Bellanthara Road,,residential,Dehiwala,footpath,MMC-FOO-4104,,
+Bellanthara Road,,residential,Dehiwala,streetlight,MMC-STR-5067,,
+Bellanthara Road,,residential,Dehiwala,drain,MMC-DRA-4116,,
+Attidiya Road,,bus route,Dehiwala,footpath,MMC-FOO-1125,,
+Attidiya Road,,bus route,Dehiwala,bus shelter,MMC-BUS-7778,,
+Attidiya Road,,bus route,Dehiwala,drain,MMC-DRA-8268,,
+Katukurunduwatte Road,,lane,Mount Lavinia,bus shelter,MMC-BUS-2283,,
+Katukurunduwatte Road,,lane,Mount Lavinia,footpath,MMC-FOO-5424,,
+Katukurunduwatte Road,,lane,Mount Lavinia,drain,MMC-DRA-9906,,
+Katukurunduwatte Road,,lane,Mount Lavinia,streetlight,MMC-STR-4315,,
+Sri Saranankara Road,,bus route,Dehiwala,bus shelter,MMC-BUS-5123,,
+Sri Saranankara Road,,bus route,Dehiwala,drain,MMC-DRA-2575,,
+Hill Street,,residential,Dehiwala,bus shelter,MMC-BUS-9679,,
+Hill Street,,residential,Dehiwala,drain,MMC-DRA-1184,,
+Hill Street,,residential,Dehiwala,streetlight,MMC-STR-8040,,
+Station Passage,,lane,Mount Lavinia,streetlight,MMC-STR-1373,,
+Station Passage,,lane,Mount Lavinia,drain,MMC-DRA-2082,,
+Station Passage,,lane,Mount Lavinia,bus shelter,MMC-BUS-5957,,
+Station Passage,,lane,Mount Lavinia,footpath,MMC-FOO-9967,,
+Templers Road,Templers Rd (old church road),bus route,Mount Lavinia,footpath,MMC-FOO-3955,Mount Lavinia Girls High School,140
+Templers Road,Templers Rd (old church road),bus route,Mount Lavinia,streetlight,MMC-STR-6101,Mount Lavinia Girls High School,140
+Templers Road,Templers Rd (old church road),bus route,Mount Lavinia,bus shelter,MMC-BUS-1520,Mount Lavinia Girls High School,140
+Rampart Road,,residential,Mount Lavinia,bus shelter,MMC-BUS-7141,,
+Rampart Road,,residential,Mount Lavinia,footpath,MMC-FOO-3973,,
+Rampart Road,,residential,Mount Lavinia,streetlight,MMC-STR-6807,,
+Hospital Road,the hospital road,bus route,Dehiwala,footpath,MMC-FOO-9713,Dehiwala Base Hospital,60
+Hospital Road,the hospital road,bus route,Dehiwala,drain,MMC-DRA-7102,Dehiwala Base Hospital,60
+School Lane,the lane behind the school,lane,Nugegoda,streetlight,MMC-STR-7157,Nugegoda Junior School,70
+School Lane,the lane behind the school,lane,Nugegoda,drain,MMC-DRA-8377,Nugegoda Junior School,70
+Lake Drive,,residential,Nugegoda,footpath,MMC-FOO-4351,,
+Lake Drive,,residential,Nugegoda,streetlight,MMC-STR-2771,,
+Lake Drive,,residential,Nugegoda,bus shelter,MMC-BUS-1920,,
+Lake Drive,,residential,Nugegoda,drain,MMC-DRA-5761,,
+Fife Road,,residential,Thimbirigasyaya,footpath,MMC-FOO-4614,,
+Fife Road,,residential,Thimbirigasyaya,streetlight,MMC-STR-7476,,
+Model Farm Road,,residential,Borella,drain,MMC-DRA-2603,,
+Model Farm Road,,residential,Borella,bus shelter,MMC-BUS-3971,,
+Model Farm Road,,residential,Borella,streetlight,MMC-STR-5617,,
+Model Farm Road,,residential,Borella,footpath,MMC-FOO-4693,,
+Kynsey Road,,bus route,Borella,streetlight,MMC-STR-7679,National Hospital Annexe,95
+Kynsey Road,,bus route,Borella,bus shelter,MMC-BUS-6109,National Hospital Annexe,95
+Kynsey Road,,bus route,Borella,footpath,MMC-FOO-9613,National Hospital Annexe,95
+Kynsey Road,,bus route,Borella,drain,MMC-DRA-8007,National Hospital Annexe,95
+Norris Canal Road,,bus route,Maradana,footpath,MMC-FOO-8593,,
+Norris Canal Road,,bus route,Maradana,drain,MMC-DRA-8244,,
+Norris Canal Road,,bus route,Maradana,bus shelter,MMC-BUS-8178,,
+Union Place,,main road,Maradana,streetlight,MMC-STR-2435,,
+Union Place,,main road,Maradana,footpath,MMC-FOO-5823,,
+Union Place,,main road,Maradana,bus shelter,MMC-BUS-3688,,
+Union Place,,main road,Maradana,drain,MMC-DRA-8716,,
+Darley Road,,bus route,Maradana,streetlight,MMC-STR-3574,,
+Darley Road,,bus route,Maradana,bus shelter,MMC-BUS-5770,,
+Maradana Road,,main road,Maradana,footpath,MMC-FOO-4517,,
+Maradana Road,,main road,Maradana,streetlight,MMC-STR-8650,,
+Maradana Road,,main road,Maradana,drain,MMC-DRA-1692,,
+Panchikawatte Road,,bus route,Maradana,drain,MMC-DRA-9544,,
+Panchikawatte Road,,bus route,Maradana,bus shelter,MMC-BUS-2987,,
+Panchikawatte Road,,bus route,Maradana,streetlight,MMC-STR-2274,,
+Reid Avenue,,bus route,Thimbirigasyaya,footpath,MMC-FOO-9067,Thurstan College,110
+Reid Avenue,,bus route,Thimbirigasyaya,bus shelter,MMC-BUS-6286,Thurstan College,110
+Reid Avenue,,bus route,Thimbirigasyaya,drain,MMC-DRA-8288,Thurstan College,110
