@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -11,7 +12,12 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
 
     supabase_url: str = ""
-    supabase_key: str = ""
+    # Supabase's newer key naming is SUPABASE_SECRET_KEY (server-side) /
+    # SUPABASE_PUBLISHABLE_KEY (client-side). Accept the old SUPABASE_KEY too.
+    supabase_key: str = Field(
+        default="",
+        validation_alias=AliasChoices("SUPABASE_KEY", "SUPABASE_SECRET_KEY"),
+    )
 
     anthropic_api_key: str = ""
     claude_model: str = "claude-haiku-4-5"

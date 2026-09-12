@@ -21,6 +21,7 @@ create table if not exists public.raw_reports (
     photo text,
     source_status text,
     normalized_location text,
+    location_confidence double precision,
     ai_analysis jsonb,
     ai_confidence double precision,
     needs_review boolean not null default false,
@@ -28,6 +29,10 @@ create table if not exists public.raw_reports (
     created_at timestamptz not null default now(),
     unique (source_file, source_row_number)
 );
+
+-- Safe to re-run: adds the column if this table already existed without it.
+alter table public.raw_reports
+    add column if not exists location_confidence double precision;
 
 create index if not exists idx_raw_reports_source_report_id
     on public.raw_reports(source_report_id);
@@ -177,3 +182,5 @@ alter table public.incidents enable row level security;
 alter table public.incident_reports enable row level security;
 alter table public.assignments enable row level security;
 alter table public.overrides enable row level security;
+alter table public.raw_reports
+    add column if not exists location_confidence double precision;
