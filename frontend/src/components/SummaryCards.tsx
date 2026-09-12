@@ -5,29 +5,33 @@ interface Props {
 }
 
 export function SummaryCards({ summary }: Props) {
-  const cards = [
+  const cells = [
     { label: "Resident reports", value: summary.reports, hint: "Raw submissions" },
-    { label: "Real incidents", value: summary.incidents, hint: "Consolidated problems" },
+    { label: "Consolidated incidents", value: summary.incidents, hint: "After dedup" },
     {
       label: "High / critical",
       value: summary.high_or_critical,
       hint: "Needs attention first",
+      signal: "critical" as const,
     },
     {
       label: "Needs review",
       value: summary.needs_review,
       hint: "Uncertain / unsupported",
+      signal: "review" as const,
     },
   ];
 
   return (
-    <section className="summary-grid" aria-label="Dashboard summary">
-      {cards.map((card) => (
-        <article className="summary-card" key={card.label}>
-          <span className="summary-label">{card.label}</span>
-          <strong>{card.value}</strong>
-          <small>{card.hint}</small>
-        </article>
+    <section className="status-strip" aria-label="Dashboard summary">
+      {cells.map((cell) => (
+        <div className="status-cell" key={cell.label}>
+          <span className="status-label">{cell.label}</span>
+          <strong className="status-value" data-signal={cell.signal}>
+            {cell.value}
+          </strong>
+          <span className="status-hint">{cell.hint}</span>
+        </div>
       ))}
     </section>
   );

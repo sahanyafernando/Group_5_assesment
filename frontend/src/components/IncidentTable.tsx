@@ -1,24 +1,28 @@
 import type { Incident } from "../types";
+import { AssignControl } from "./AssignControl";
 
 interface Props {
   incidents: Incident[];
+  onAssign: (incidentId: string, crew: string) => Promise<void>;
+  onSelect: (incidentId: string) => void;
 }
 
-function badgeClass(level: string) {
-  return `priority-badge priority-${level.toLowerCase()}`;
+function badgeClass(level: string | null | undefined) {
+  return `priority-badge priority-${(level ?? "unknown").toLowerCase()}`;
 }
 
-export function IncidentTable({ incidents }: Props) {
+export function IncidentTable({ incidents, onAssign, onSelect }: Props) {
   return (
     <div className="table-shell">
       <table>
         <thead>
           <tr>
-            <th>Priority</th>
+            <th>Priority level</th>
+            <th>Score</th>
             <th>Incident</th>
             <th>Location</th>
             <th>Reports</th>
-            <th>Required crew</th>
+            <th>Crew</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -27,25 +31,32 @@ export function IncidentTable({ incidents }: Props) {
           {incidents.map((incident) => (
             <tr key={incident.id}>
               <td>
-                <div className="priority-cell">
-                  <span className={badgeClass(incident.priority_level)}>
-                    {incident.priority_level}
-                  </span>
-                  <strong>{incident.priority_score}</strong>
-                </div>
+                <span className={badgeClass(incident.priority_level)}>
+                  {incident.priority_level ?? "UNKNOWN"}
+                </span>
               </td>
 
               <td>
-                <div className="incident-title-row">
-                  <strong>{incident.title}</strong>
-                  {incident.needs_review && (
-                    <span className="review-chip">Review</span>
-                  )}
-                </div>
-                <small>
-                  {incident.work_type ?? "Unknown work type"} ·{" "}
-                  {incident.incident_code}
-                </small>
+                <strong className="mono">{incident.priority_score}</strong>
+              </td>
+
+              <td>
+                <button
+                  type="button"
+                  className="incident-link"
+                  onClick={() => onSelect(incident.id)}
+                >
+                  <div className="incident-title-row">
+                    <strong>{incident.title}</strong>
+                    {incident.needs_review && (
+                      <span className="review-chip">Review</span>
+                    )}
+                  </div>
+                  <small>
+                    {incident.work_type ?? "Unknown work type"} ·{" "}
+                    <span className="mono">{incident.incident_code}</span>
+                  </small>
+                </button>
               </td>
 
               <td>
@@ -57,7 +68,9 @@ export function IncidentTable({ incidents }: Props) {
                 <span className="report-count">{incident.report_count}</span>
               </td>
 
-              <td>{incident.required_crew}</td>
+              <td>
+                <AssignControl incident={incident} onAssign={onAssign} />
+              </td>
 
               <td>
                 <span className="status-chip">{incident.status}</span>
@@ -67,7 +80,7 @@ export function IncidentTable({ incidents }: Props) {
 
           {incidents.length === 0 && (
             <tr>
-              <td colSpan={6} className="empty-state">
+              <td colSpan={7} className="empty-state">
                 No incidents match the current filters.
               </td>
             </tr>

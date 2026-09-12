@@ -2,6 +2,7 @@ import type { Incident } from "../types";
 
 interface Props {
   incidents: Incident[];
+  onSelect: (incidentId: string) => void;
 }
 
 const CREWS = [
@@ -11,7 +12,7 @@ const CREWS = [
   "Manual Review",
 ];
 
-export function DispatchBoard({ incidents }: Props) {
+export function DispatchBoard({ incidents, onSelect }: Props) {
   return (
     <section className="dispatch-grid">
       {CREWS.map((crew) => {
@@ -22,28 +23,31 @@ export function DispatchBoard({ incidents }: Props) {
         return (
           <article className="crew-column" key={crew}>
             <header>
-              <div>
-                <span className="eyebrow">Crew queue</span>
-                <h2>{crew}</h2>
-              </div>
+              <h2>{crew}</h2>
               <span className="queue-count">{queue.length}</span>
             </header>
 
             <div className="crew-list">
               {queue.map((incident, index) => (
-                <div className="dispatch-card" key={incident.id}>
-                  <div className="dispatch-rank">#{index + 1}</div>
+                <button
+                  type="button"
+                  className="dispatch-card"
+                  key={incident.id}
+                  onClick={() => onSelect(incident.id)}
+                >
+                  <div className="dispatch-rank mono">#{index + 1}</div>
                   <div>
                     <div className="dispatch-title">
                       <strong>{incident.title}</strong>
-                      <span>{incident.priority_score}</span>
+                      <span className="mono">{incident.priority_score}</span>
                     </div>
                     <p>{incident.canonical_road ?? "Location unresolved"}</p>
                     <small>
-                      {incident.report_count} report(s) · {incident.priority_level}
+                      {incident.report_count} report(s) ·{" "}
+                      {incident.priority_level ?? "UNKNOWN"}
                     </small>
                   </div>
-                </div>
+                </button>
               ))}
 
               {queue.length === 0 && (

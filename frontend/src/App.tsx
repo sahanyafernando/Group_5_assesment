@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { getIncidents, getSummary } from "./api";
+import { assignCrew, getIncidents, getSummary } from "./api";
 import { DispatchBoard } from "./components/DispatchBoard";
+import { IncidentDetailPanel } from "./components/IncidentDetailPanel";
 import { IncidentTable } from "./components/IncidentTable";
 import { SummaryCards } from "./components/SummaryCards";
 import type { DashboardSummary, Incident } from "./types";
@@ -23,27 +24,35 @@ export default function App() {
   const [crewFilter, setCrewFilter] = useState("All crews");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedIncidentId, setSelectedIncidentId] = useState<string | null>(null);
+
+  async function load() {
+    try {
+      setLoading(true);
+      const [summaryData, incidentData] = await Promise.all([
+        getSummary(),
+        getIncidents(),
+      ]);
+      setSummary(summaryData);
+      setIncidents(incidentData);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load dashboard.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    async function load() {
-      try {
-        setLoading(true);
-        const [summaryData, incidentData] = await Promise.all([
-          getSummary(),
-          getIncidents(),
-        ]);
-        setSummary(summaryData);
-        setIncidents(incidentData);
-        setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load dashboard.");
-      } finally {
-        setLoading(false);
-      }
-    }
-
     void load();
   }, []);
+
+  async function handleAssign(incidentId: string, crew: string) {
+    const updated = await assignCrew(incidentId, crew);
+    setIncidents((prev) =>
+      prev.map((incident) => (incident.id === incidentId ? updated : incident)),
+    );
+  }
 
   const filtered = useMemo(() => {
     const needle = search.trim().toLowerCase();
@@ -64,16 +73,18 @@ export default function App() {
 
   return (
     <main className="app-shell">
-      <header className="topbar">
-        <div>
-          <span className="eyebrow">Muthuwella Municipal Council</span>
-          <h1>Works Dispatch</h1>
-          <p>Turn resident reports into clear, explainable crew decisions.</p>
+      <header className="console-header">
+        <div className="console-header__identity">
+          <h1>Muthuwella Works Dispatch</h1>
+          <p>
+            Public Works coordination console — turn resident reports into clear,
+            explainable crew decisions.
+          </p>
         </div>
 
-        <div className="morning-pill">
-          <span>Morning triage</span>
-          <strong>07:00 → 08:00</strong>
+        <div className="console-readout">
+          <span>Morning triage window</span>
+          <strong className="mono">07:00 — 08:00</strong>
         </div>
       </header>
 
@@ -96,20 +107,23 @@ export default function App() {
         <div className="error-banner">
           <strong>API unavailable.</strong>
           <span>{error}</span>
+          <button className="retry-button" onClick={() => void load()}>
+            Retry
+          </button>
         </div>
       )}
 
       {loading ? (
-        <div className="loading-state">Loading dispatch picture…</div>
+        <DashboardSkeleton />
       ) : view === "dashboard" ? (
         <>
           <SummaryCards summary={summary} />
 
-          <section className="section-card">
-            <div className="section-heading">
+          <section className="sheet">
+            <div className="sheet-heading">
               <div>
-                <span className="eyebrow">Ranked by explainable priority</span>
                 <h2>Today's incidents</h2>
+                <p className="sheet-subtitle">Ranked by explainable priority score.</p>
               </div>
 
               <div className="filters">
@@ -132,12 +146,47 @@ export default function App() {
               </div>
             </div>
 
-            <IncidentTable incidents={filtered} />
+            <IncidentTable
+              incidents={filtered}
+              onAssign={handleAssign}
+              onSelect={setSelectedIncidentId}
+            />
           </section>
         </>
       ) : (
-        <DispatchBoard incidents={incidents} />
+        <DispatchBoard incidents={incidents} onSelect={setSelectedIncidentId} />
+      )}
+
+      {selectedIncidentId && (
+        <IncidentDetailPanel
+          incidentId={selectedIncidentId}
+          onClose={() => setSelectedIncidentId(null)}
+          onAssign={handleAssign}
+        />
       )}
     </main>
+  );
+}
+
+function DashboardSkeleton() {
+  return (
+    <>
+      <div className="skeleton-strip" aria-hidden="true">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div className="skeleton-cell" key={index}>
+            <div className="skeleton" style={{ width: "70%" }} />
+            <div className="skeleton" />
+          </div>
+        ))}
+      </div>
+
+      <div className="sheet">
+        <div className="skeleton-rows" aria-hidden="true">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div className="skeleton skeleton-row" key={index} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
