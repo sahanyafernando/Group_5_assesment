@@ -4,7 +4,7 @@ import re
 from anthropic import Anthropic
 
 from app.core.config import get_settings
-from app.schemas.incident import ReportAnalysis, ReportAnalysisRequest
+from app.schemas.ai import ReportAnalysis, ReportAnalysisRequest
 from app.services.crew_service import ALLOWED_WORK_TYPES
 
 
