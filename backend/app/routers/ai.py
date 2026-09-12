@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-from app.schemas.incident import ReportAnalysis, ReportAnalysisRequest
+from app.schemas.ai import ReportAnalysis, ReportAnalysisRequest
 from app.services.claude_service import analyze_report
 
 router = APIRouter(prefix="/ai", tags=["ai"])
