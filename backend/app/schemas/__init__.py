@@ -3,7 +3,7 @@
 Import from the package root: `from app.schemas import IncidentOut`.
 """
 
-from app.schemas.ai import LocationHint, ReportAnalysis, ReportAnalysisRequest
+from app.schemas.ai import IncidentInsight, LocationHint, ReportAnalysis, ReportAnalysisRequest
 from app.schemas.common import (
     CREW_ORDER,
     CrewName,
@@ -38,6 +38,7 @@ __all__ = [
     "DispatchQueue",
     "DispatchView",
     "IncidentDetail",
+    "IncidentInsight",
     "IncidentOut",
     "IncidentStatus",
     "LocationHint",

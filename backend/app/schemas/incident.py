@@ -6,7 +6,7 @@ about the same underlying problem (DECISIONS.md D1).
 
 from datetime import date, datetime
 
-from pydantic import BaseModel, ConfigDict, Field, computed_field
+from pydantic import BaseModel, ConfigDict, Field, computed_field, field_validator
 
 from app.schemas.common import PriorityLevel
 from app.schemas.report import ReportOut
@@ -120,6 +120,19 @@ class IncidentOut(BaseModel):
     location_confidence: float | None = Field(default=None, ge=0, le=1)
     needs_review: bool = False
     recent_job_warning: RecentJobWarning | None = None
+
+    @field_validator("required_crew", "priority_level", mode="before")
+    @classmethod
+    def _coerce_stored_null(cls, value, info):
+        """A stored row can have this column explicitly NULL (not merely
+        absent), which bypasses the field's default - so it surfaces here
+        as the literal value None. Map it to the same default the field
+        already declares, matching the resilience pattern used above for
+        work_type/category/severity: an incomplete row becomes a review
+        item, not a 500 on read."""
+        if value is not None:
+            return value
+        return "Manual Review" if info.field_name == "required_crew" else "LOW"
 
 
 class IncidentDetail(IncidentOut):

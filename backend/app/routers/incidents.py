@@ -4,6 +4,7 @@ Read endpoints serve the dashboard. Write endpoints are Maya's decisions --
 every one of them is audited (CLAUDE.md section 5, DECISIONS.md D5).
 """
 
+from anthropic import Anthropic
 from fastapi import APIRouter, HTTPException, Query
 
 from app.core.config import get_settings
@@ -11,11 +12,13 @@ from app.db import incidents_repo as repo
 from app.schemas import (
     AssignCrew,
     IncidentDetail,
+    IncidentInsight,
     IncidentOut,
     OverrideRequest,
     StatusUpdate,
 )
 from app.services import demo_store
+from app.services.ai_summarizer import generate_incident_insight
 from app.services.crew_service import get_crew
 from app.services.enrichment_pipeline import enrich_incident
 from app.services.priority_service import priority_level as compute_priority_level
@@ -90,6 +93,44 @@ def get_incident(incident_id: str) -> dict:
         raise HTTPException(status_code=503, detail=f"Database query failed: {exc}") from exc
 
     return {**incident, "source_reports": source_reports}
+
+
+@router.post("/{incident_id}/ai-insight", response_model=IncidentInsight)
+async def get_incident_insight(incident_id: str) -> dict:
+    """An on-demand Claude read of one incident: a summary plus a short list
+    of things worth checking before acting on it.
+
+    Advisory only (CLAUDE.md section 5) - never persisted over the
+    deterministic pipeline's own fields, and never raises for a Claude
+    failure; it degrades to a plain result with insight_error set instead
+    (CLAUDE.md section 9).
+    """
+    settings = get_settings()
+
+    if settings.demo_mode:
+        incident = demo_store.find_incident(incident_id)
+        if incident is None:
+            raise HTTPException(status_code=404, detail="Incident not found")
+        source_reports = []
+    else:
+        try:
+            incident = repo.get_incident(incident_id)
+            if incident is None:
+                raise HTTPException(status_code=404, detail="Incident not found")
+            source_reports = repo.get_source_reports(incident_id)
+        except HTTPException:
+            raise
+        except Exception as exc:
+            raise HTTPException(status_code=503, detail=f"Database query failed: {exc}") from exc
+
+    if not settings.claude_configured:
+        raise HTTPException(
+            status_code=503,
+            detail="Claude API is not configured. Set ANTHROPIC_API_KEY in backend/.env.",
+        )
+
+    client = Anthropic(api_key=settings.anthropic_api_key)
+    return await generate_incident_insight(client, incident, source_reports)
 
 
 @router.post("/{incident_id}/status", response_model=IncidentOut)

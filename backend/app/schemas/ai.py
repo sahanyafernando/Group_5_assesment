@@ -35,3 +35,18 @@ class ReportAnalysis(BaseModel):
     impact: list[str] = []
     confidence: float = Field(ge=0, le=1)
     needs_review: bool
+
+
+class IncidentInsight(BaseModel):
+    """An on-demand Claude read of one incident: what it is, and what a
+    coordinator might want to check before acting on it.
+
+    Advisory only - recommended_actions are suggestions to consider, never a
+    crew, priority, or dispatch decision (CLAUDE.md section 5). The
+    coordinator's own assign/override actions are the only real decisions.
+    """
+
+    summary: str
+    recommended_actions: list[str] = []
+    generated_at: str
+    insight_error: str | None = None
